@@ -14,7 +14,7 @@ body {
   background: rgb(0, 255, 252);
   background: linear-gradient(135deg, rgba(0, 255, 252, 1) 0%, rgba(0, 84, 167, 1) 0%, rgba(0, 255, 235, 1) 100%);
   scroll-behavior: smooth;
-  background-image: url("../assets/grama-artificial.jpg");
+  background-image: url("../assets/rede.jpg");
   background-size: cover;
 }
 
@@ -158,21 +158,97 @@ span {
 
  .container_inicio {
   background-color: #363636;
-  height: 90%;
+  height: 115%;
   width: 90%;
   display: flex;
   margin: auto;
-  margin-top: 4%;
+  margin-top: 1%;
   padding: 10px 0;
   border-radius: 20px;
   font-weight: 600 !important;
   background-image: url("../assets/banner_inicio.png");
    background-size: cover;
+   
  }
 
+ .santos {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-evenly;
+   align-items: center;
+   padding-left: 1px;
+ }
 
+.time_info {
+  height: 185px;
+  margin-top: 150px;
+  background-image: url("../assets/campo_borrado.jpg");
+  background-size: cover;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  width: 50%;
+  text-align: justify;
+  padding: 20px;
+  font-weight: 700;
+  border: 2px solid #000000;
+  box-shadow: 4px 4px 6px 0px;
+  display: flex;
+  margin-left: -70px;
+  padding-bottom: 30px;
+  padding-top: 6px;
+}
 
+.time_logo {
+  border-bottom: 5px;
+  align-items: center;
+  height: 100px;
+  width: 190px;
+}
 
+.sao-paulo {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-left: 1px;
+  margin-top: -50px;
+}
+
+.corinthians {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-left: 1px;
+  margin-top: -50px;
+}
+
+.palmeiras {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-left: 1px;
+  margin-top: -50px;
+}
+
+.botafogo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-left: 1px;
+  margin-top: -50px;
+}
+
+.flamengo {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-left: 1px;
+  margin-top: -50px;
+}
 
 /* ***********************************************FOOTER*************************************** */
 
@@ -627,8 +703,9 @@ button {
 }
 
 .card_erro {
+  margin-top: 50px;
   display: none;
-  background-color: #fff;
+  background-color: black;
   color: black;
   width: 230px;
   position: fixed;

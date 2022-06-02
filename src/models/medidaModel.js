@@ -1,24 +1,29 @@
 var database = require("../database/config");
 
-function buscarUltimasMedidas(idTransporte, limite_linhas) {
+function votar(idClube) {
+    instrucaoSql = `INSERT INTO votacao (fkClube) VALUES (${idClube});`
+    console.log('Executando instrução SQL:' +  instrucaoSql)
+    return database.executar(instrucaoSql);
+}
+
+function buscarUltimasMedidas(idClube, limite_linhas) {
     instrucaoSql = `select 
-                        temperatura, 
-                        momento,
-                        DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico
-                    from medida
-                    where fk_transporte = ${idTransporte}
-                    order by id desc limit ${limite_linhas}`;
+                        nomeClube, 
+                        count(fkClube)
+                        as idVotacao
+                    FROM clube
+                    JOIN votacao ON fkClube = idClube GROUP BY fkClube ORDER BY fkClube;`
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
-function buscarMedidasEmTempoReal(idTransporte) {
+function buscarMedidasEmTempoReal(idClube) {
     instrucaoSql = `select 
-                        temperatura, 
-                        DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico, 
-                        fk_transporte 
-                        from medida where fk_transporte = ${idTransporte} 
-                    order by id desc limit 1`;
+                nomeClube, 
+                count(fkClube)
+                as idVotacao
+                FROM clube
+                JOIN votacao ON fkClube = idClube GROUP BY fkClube ORDER BY fkClube;`
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -26,6 +31,7 @@ function buscarMedidasEmTempoReal(idTransporte) {
 
 
 module.exports = {
+    votar,
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal
 }

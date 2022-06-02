@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Termovac | Dashboards</title>
+    <title>Futimes | Dashboards</title>
 
     <link rel="icon" href="./assets/futebol7-recortado-removebg-preview.png">
     <link rel="stylesheet" href="../css/style.css">
@@ -57,35 +57,144 @@
 
         </div>
 
-        <div class="dash">
-            <div class="regua">
-                <div class="item-regua perigo-frio">
-                    <h4>Perigo ❄️</h4>
-                    <h2>-80°C</h2>
+        <div class="header">
+            <div class="container">
+                <h1 class="titulo"><a href="./index.html"><img style="height: 120px; width: 130px;" src="assets/Futimes.com3.png" alt=""></a></h1>
+                <ul class="navbar">
+                    <li>
+                        <a href="./index.html">Início</a>
+                    </li>
+                    <a class="agora">
+                        <span>Clubes</span> 
+                        <div class="borda"></div>
+                    </a>
+                    <li>|</li>
+                    <li>
+                        <a href="./login.html">Login</a>
+                    </li>
+                    <li>
+                        <a href="./cadastro.html">Cadastro</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="espacamento1"></div>
+
+        <div class="banner_sobre">
+
+        
+            <!-- Carrosel -->
+            <div class="swiper mySwiper carrosel" id="Sobre-nos">
+                <div class="carrosel_container">
+                    <div class="carrosel_content">
+                        <!--Slide 1-->
+                        <!-- Card 1-->
+                        <div class=" carrosel_card">
+                            <div class="carrosel_card_content">
+    
+                                <div class="carrosel_image">
+                                    <img src="./assets/logo-santos.png">
+                                </div>
+    
+                                <div class="carrosel_nome">Santos FC</div>
+                                <div class="carrosel_profissao">O melior</div>
+                                <button class="btn-chart" onclick="Votar(1)">Votar!</button>
+                            </div>
+                        </div>
+    
+                        <!-- Card 2-->
+                        <div id="carrosel" class="carrosel_card">
+                            <div class="carrosel_card_content">
+    
+                                <div class="carrosel_image">
+                                    <img src="./assets/logo-sao-paulo.png">
+                                </div>
+    
+                                <div class="carrosel_nome">São Paulo FC</div>
+                                <div class="carrosel_profissao">Os Bambi</div>
+                                <button class="btn-chart" onclick="Votar(2)">Votar!</button>
+                            </div>
+                        </div>
+    
+                        <!-- Card 3-->
+                        <div class="carrosel_card">
+                            <div class="carrosel_card_content">
+    
+                                <div class="carrosel_image">
+                                    <img src="./assets/logo-corinthians.png">
+                                </div>
+    
+                                <div class="carrosel_nome">SC Corinthians</div>
+                                <div class="carrosel_profissao">O mais feio</div>
+                                <button class="btn-chart" onclick="Votar(3)">Votar!</button>
+                            </div>
+                        </div>
+    
+                        <!-- Card 4-->
+                        <div class="carrosel_card">
+                            <div class="carrosel_card_content">
+    
+                                <div class="carrosel_image">
+                                    <img src="./assets/logo-palmeiras.png">
+                                </div>
+    
+                                <div class="carrosel_nome">SE Palmeiras</div>
+                                <div class="carrosel_profissao">Sem mundial !</div>
+                                <button class="btn-chart" onclick="Votar(4)">Votar!</button>
+                            </div>
+                        </div>
+    
+                        <!-- Card 5-->
+                        <div class="carrosel_card">
+                            <div class="carrosel_card_content">
+    
+                                <div class="carrosel_image">
+                                    <img src="./assets/logo-botafogo.png">
+                                </div>
+    
+                                <div class="carrosel_nome">Botafogo de Futebol e Regatas</div>
+                                <div class="carrosel_profissao">Ninguém liga</div>
+                                <button class="btn-chart" onclick="Votar(5)">Votar!</button>
+                            </div>
+                        </div>
+    
+                        <!-- Card 6-->
+                        <div class="carrosel_card">
+                            <div class="carrosel_card_content">
+    
+                                <div class="carrosel_image">
+                                    <img src="./assets/logo-flamengo.png">
+                                </div>
+    
+                                <div class="carrosel_nome">Flamengo</div>
+                                <div class="carrosel_profissao">...</div>
+                                <button class="btn-chart" onclick="Votar(6)">Votar!</button>
+                            </div>
+                        </div>
+    
+    
+                    </div>
+                    <div class="carrosel_button_container">
+                        <img onclick="moverDireita()" class="carroselButton nextButton"
+                            src="./assets/seta_direita.png" alt="">
+                        <img onclick="moverEsquerda()" class="carroselButton prevButton none"
+                            src="./assets/seta_esquerda.png" alt="">
+                    </div>
                 </div>
-                <div class="item-regua alerta-frio">
-                    <h4>Alerta ❄️</h4>
-                    <h2>-40°C</h2>
-                </div>
-                <div class="item-regua ideal">
-                    <h4>Ideal</h4>
-                    <h2>0°C</h2>
-                </div>
-                <div class="item-regua alerta-quente">
-                    <h4>Alerta 🔥</h4>
-                    <h2>6°C</h2>
-                </div>
-                <div class="item-regua perigo-quente">
-                    <h4>Perigo 🔥</h4>
-                    <h2>10°C</h2>
-                </div>
-                <div class="btns-dash">
-                    <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
-                    <button class="btn-chart" onclick="obterDadosGrafico(1)">Transporte 1</button>
-                    <button class="btn-chart" onclick="obterDadosGrafico(2)">Transporte 2</button>
-                    <button class="btn-chart" onclick="obterDadosGrafico(3)">Transporte 3</button>
-                    <button class="btn-chart" onclick="obterDadosGrafico(4)">Transporte 4</button>
-                </div>
+            </div>
+        </div>
+        </div>
+        <!--Fim Carrosel-->
+    
+        <!--footer inicio-->
+        <div class="footer">
+            <div class="container">
+                <h1 class="titulo"><img style="height: 85px; width: 266px;" src="assets/Futimes.com5-removebg-copia.png" alt="">
+                </h1>
+            </div>
+        </div>
+
                 <div class="graph">
                     <canvas id="canvas_grafico"></canvas>
                 </div>

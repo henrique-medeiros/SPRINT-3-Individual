@@ -1,14 +1,35 @@
 var medidaModel = require("../models/medidaModel");
 
-function buscarUltimasMedidas(req, res) {
+function votar(req, res) {
 
-    const limite_linhas = 7;
+    const limite_linhas = 6;
 
-    var idTransporte = req.params.idTransporte;
+    var idClube = req.params.idClube;
 
     console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
 
-    medidaModel.buscarUltimasMedidas(idTransporte, limite_linhas).then(function (resultado) {
+    medidaModel.buscarUltimasMedidas(idClube, limite_linhas).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function buscarUltimasMedidas(req, res) {
+
+    const limite_linhas = 6;
+
+    var idClube = req.params.idClube;
+
+    console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
+
+    medidaModel.buscarUltimasMedidas(idClube, limite_linhas).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -24,11 +45,11 @@ function buscarUltimasMedidas(req, res) {
 
 function buscarMedidasEmTempoReal(req, res) {
 
-    var idTransporte = req.params.idTransporte;
+    var idClube = req.params.idClube;
 
     console.log(`Recuperando medidas em tempo real`);
 
-    medidaModel.buscarMedidasEmTempoReal(idTransporte).then(function (resultado) {
+    medidaModel.buscarMedidasEmTempoReal(idClube).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -42,6 +63,7 @@ function buscarMedidasEmTempoReal(req, res) {
 }
 
 module.exports = {
+    votar,
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal
 
