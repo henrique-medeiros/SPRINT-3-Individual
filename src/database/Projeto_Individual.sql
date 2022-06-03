@@ -21,11 +21,11 @@ foreign key(fkClube) references Clube(idClube));
 
 select * from votacao;
 
-insert into votacao values (null, 1),
-(null, 2),
-(null, 3),
-(null, 4),
-(null, 6);
+-- insert into votacao values (null, 1),
+-- (null, 2),
+-- (null, 3),
+-- (null, 4),
+-- (null, 6);
 
 select count(fkClube) from votacao where fkClube=1;
 

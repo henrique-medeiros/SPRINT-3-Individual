@@ -167,7 +167,9 @@ span {
   border-radius: 20px;
   font-weight: 600 !important;
   background-image: url("../assets/banner_inicio.png");
-   background-size: cover;
+  background-size: cover;
+  border: 2px solid #000000;
+  box-shadow: 4px 4px 6px 0px;
    
  }
 
@@ -371,8 +373,8 @@ span {
   padding: 0;
 }
 
-.btn-logout {
-  margin: 0;
+/* .btn-logout {
+  margin: -40;
   padding: 0;
   width: 20%;
   background-color: #32b9cd;
@@ -382,7 +384,7 @@ span {
   padding: 10px 15px;
   margin-bottom: 100px;
   cursor: pointer;
-}
+} */
 
 /* **************************************SIMULADOR FINANCEIRO************************************** */
 
@@ -694,6 +696,8 @@ button {
   margin-left: 5%;
   color: white;
   background-color: #363636;
+  border: 1px solid #000000;
+  box-shadow: 4px 4px 6px 0px;
 }
 
 .box img {

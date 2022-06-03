@@ -59,13 +59,13 @@
 
         <div class="header">
             <div class="container">
-                <h1 class="titulo"><a href="./index.html"><img style="height: 120px; width: 130px;" src="../assets/Futimes.com3.png" alt=""></a></h1>
+                <h1 class="titulo"><a href="../index.html"><img style="height: 120px; width: 130px;" src="../assets/Futimes.com3.png" alt="" ></a></h1>
                 <a class="hello">
                     <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
                 </a>
                 <ul class="navbar">
                     <li>
-                        <a href="./index.html">Início</a>
+                        <a href="../index.html">Início</a>
                     </li>
                     <a class="agora">
                         <span>Votação</span> 
@@ -73,10 +73,10 @@
                     </a>
                     <li>|</li>
                     <li>
-                        <a href="./login.html">Login</a>
+                        <a href="../login.html">Login</a>
                     </li>
                     <li>
-                        <a href="./cadastro.html">Cadastro</a>
+                        <a href="../cadastro.html">Cadastro</a>
                     </li>
                     <li>
                         <a class="btn-logout" onclick="limparSessao()">Sair</a>
@@ -119,7 +119,7 @@
                                 </div>
     
                                 <div class="carrosel_nome">São Paulo FC</div>
-                                <div class="carrosel_profissao">Os Bambi</div>
+                                <div class="carrosel_profissao">...</div>
                                 <button class="btn-chart" onclick="Votar(2)">Votar!</button>
                             </div>
                         </div>
@@ -195,16 +195,16 @@
         <!--Fim Carrosel-->
     
         <!--footer inicio-->
-        <div class="footer">
+        <!-- <div class="footer">
             <div class="container">
                 <h1 class="titulo"><img style="height: 85px; width: 266px;" src="../assets/Futimes.com5-removebg-copia.png" alt="">
                 </h1>
             </div>
-        </div>
+        </div> -->
 
-                <!-- <div class="graph">
-                    <canvas id="canvas_grafico"></canvas>
-                </div> -->
+                <div class="graph">
+                    <canvas id="canvas_grafico" style="display: block;width: 1079px;height: 460px;" width="1079" height="539" class="chartjs-render-monitor">
+                </div>
             
         <!-- </div> -->
 
@@ -217,7 +217,7 @@
 
     let proximaAtualizacao;
 
-    window.onload = obterDadosGrafico(1);
+    window.onload = () => {obterDadosGrafico(1), obterDadosGrafico(2), obterDadosGrafico(3), obterDadosGrafico(4), obterDadosGrafico(5), obterDadosGrafico(6)};
 
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
@@ -225,19 +225,17 @@
 
     // altere aqui como os dados serão exibidos
     // e como são recuperados do BackEnd
-    function obterDadosGrafico(idTransporte) {
-        if (proximaAtualizacao != undefined) {
-            clearTimeout(proximaAtualizacao);
-        }
+    function Votar(idClube) {
+        // if (proximaAtualizacao != undefined) {
+        //     clearTimeout(proximaAtualizacao);
+        // }
 
-        fetch(`/medidas/ultimas/${idTransporte}`, { cache: 'no-store' }).then(function (response) {
+        console.log('Entrei no Votar')
+        fetch(`/medidas/votar/${idClube}`, { cache: 'no-store' }).then(function (response) {
+            console.log('To no fetch')
             if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    resposta.reverse();
-
-                    plotarGrafico(resposta, idTransporte);
-                });
+                alert('Você votou');
+                obterDadosGrafico(idClube);
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
             }
@@ -248,81 +246,101 @@
 
     }
 
+    function obterDadosGrafico(idClube) {
+
+        fetch(`/medidas/ultimas/${idClube}`, {cache: 'no-store'}).then(function(response){
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    plotarGrafico(resposta, idClube);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+        .catch(function(error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+    }
+
     // só altere aqui se souber o que está fazendo!
-    function plotarGrafico(resposta, idTransporte) {
+    function plotarGrafico(resposta, idClube) {
         console.log('iniciando plotagem do gráfico...');
 
         var dados = {
             labels: [],
             datasets: [
                 {
-                    yAxisID: 'y-temperatura',
-                    label: 'Temperatura',
+                    yAxisID: 'y-idVotacao',
+                    label: 'Votos',
                     borderColor: '#FFF',
-                    backgroundColor: '#32b9cd8f',
+                    backgroundColor: ['white', 'red', 'black', 'green', '#1C1C1C', 'darkred'],
                     fill: true,
                     data: []
                 }
             ]
         };
 
-        for (i = 0; i < resposta.length; i++) {
+        for (i = resposta.length-1; i >=0; i--) {
             var registro = resposta[i];
-            dados.labels.push(registro.momento_grafico);
+            dados.labels.push(registro.nomeClube);
             //dados.datasets[0].data.push(registro.umidade);
-            dados.datasets[0].data.push(registro.temperatura);
+            dados.datasets[0].data.push(registro.idVotacao);
         }
 
         console.log(JSON.stringify(dados));
 
         var ctx = canvas_grafico.getContext('2d');
-        window.grafico_linha = Chart.Line(ctx, {
+        window.grafico_linha = Chart.Bar(ctx, {
             data: dados,
             //Configurações do gráfico
             options: {
                 responsive: true,
                 animation: { duration: 500 },
                 hoverMode: 'index',
-                stacked: false,
+                stacked: true,
                 title: {
                     display: true,
-                    text: 'Histórico recente de temperatura'
+                    text: 'Votação para melhor time'
                 },
                 scales: {
                     yAxes: [{
                         type: 'linear',
                         display: true,
                         position: 'left',
-                        id: 'y-temperatura',
+                        id: 'y-idVotacao',
                         ticks: {
                             beginAtZero: true,
-                            max: 100,
-                            min: -100
+                            min: 0,
+                            max: 20
+                            
                         }
                     }],
                 }
             }
         });
 
-        function sendData() {
-            var http = new XMLHttpRequest();
-            http.open('POST', 'http://localhost:3000/api/sendData', false);
-            http.send(null);
-        }
+        // function sendData() {
+        //     var http = new XMLHttpRequest();
+        //     http.open('POST', 'http://localhost:3000/api/sendData', false);
+        //     http.send(null);
+        // }
 
-        setInterval(() => {
-            sendData();
-        }, 2000);
+        // setInterval(() => {
+        //     sendData();
+        // }, 2000);
 
-        //Atualiza os dados de 5 em 5 segundos
-        setTimeout(() => atualizarGrafico(idTransporte, dados), 2000);
+        // //Atualiza os dados de 5 em 5 segundos
+        // setTimeout(() => atualizarGrafico(idTransporte, dados), 2000);
     }
 
     // só mexer se quiser alterar o tempo de atualização
     // ou se souber o que está fazendo!
-    function atualizarGrafico(idTransporte, dados) {
+    function atualizarGrafico(idClube, dados) {
 
-        fetch(`/medidas/tempo-real/${idTransporte}`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/medidas/tempo-real/${idClube}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
 
@@ -330,18 +348,18 @@
                     console.log(`Dados atuais do gráfico: ${dados}`);
 
                     // tirando e colocando valores no gráfico
-                    dados.labels.shift(); // apagar o primeiro
-                    dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
-                    dados.datasets[0].data.shift();  // apagar o primeiro de temperatura
-                    dados.datasets[0].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
+                    // dados.labels.shift(); // apagar o primeiro
+                    // dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
+                    // dados.datasets[0].data.shift();  // apagar o primeiro de temperatura
+                    // dados.datasets[0].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
 
                     window.grafico_linha.update();
 
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idTransporte, dados), 2000);
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idClube, dados), 2000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(idTransporte, dados), 2000);
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(idClube, dados), 2000);
             }
         })
             .catch(function (error) {
@@ -374,7 +392,7 @@
 
     function moverDireita() {
         var card = document.getElementsByClassName('carrosel_card')
-        var prevButton = document.getElementsByClassName('prevButton')
+        var prevButton = document.getElementsByClassName('nextButton') /*mudei agora a pouco o next*/
 
         if (click <= 2) {
             if (click == 1) {
