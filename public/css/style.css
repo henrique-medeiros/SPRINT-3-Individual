@@ -91,7 +91,7 @@ body #espacamento {
 }
 
 span {
-  color: white;
+  color: black;
   transition: all 0.5s;
 }
 
@@ -539,6 +539,10 @@ button:hover {
   color: white;
 }
 
+.tipo_campo {
+  color: white;
+}
+
 .bannerLog {
   height: 580px;
   background-image: url("../assets/futebol10.jpg");
@@ -689,6 +693,7 @@ button {
   font-size: 11px;
   margin-left: 5%;
   color: white;
+  background-color: #363636;
 }
 
 .box img {
@@ -718,6 +723,7 @@ button {
 .card_erro #mensagem_erro {
   font-weight: 500;
   font-size: 20px;
+  color: white;
 }
 
 .formularioCad .tipo_campo {
@@ -780,11 +786,7 @@ input {
 }
 
 .banner_sobre {
-  /* height: 580px; */
   height: 400px;
-
-  /* background-image: url("../assets/grama-artificial.jpg");
-  background-size: cover; */
 }
 
 
