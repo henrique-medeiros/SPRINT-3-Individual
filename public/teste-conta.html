@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>teste</title>
+</head>
+<body>
+    
+    <h3>conta de quantos titulos viu</h3>
+
+    <input placeholder="Em que ano santista nasceu?" id="in_san" onkeyup="qtd()"><br>
+    <input placeholder="Em que ano sao paulino nasceu?" id="in_sp" onkeyup="qtd()"><br>
+    <input placeholder="Em que ano corinthiano nasceu?" id="in_cor" onkeyup="qtd()"><br>
+    <input placeholder="Em que ano palmeirense nasceu?" id="in_pal" onkeyup="qtd()"><br>
+    <input placeholder="Em que ano botafogo nasceu?" id="in_fogo" onkeyup="qtd()"><br>
+    <input placeholder="Em que ano flamengo nasceu?" id="in_fla" onkeyup="qtd()"><br>
+
+    <div id="div_resultado"></div>
+</body>
+</html>
+<script>
+    function qtd() {
+        let san = Number(in_san.value)
+        let sp = Number(in_sp.value)
+        let cor = Number(in_cor.value)
+        let pal = Number(in_pal.value)
+        let fogo = Number(in_fogo.value)
+        let fla = Number(in_fla.value)
+
+        if(san <= 1962) {
+            div_resultado.innerHTML = `Você viu TODOS os 9 títulos internacionais do Peixão!`
+        } if(san >= 1963 && san <= 1967) {
+            div_resultado.innerHTML = `Você viu 7 títulos internacionais do Peixão!`
+        } if(san >= 1968 && san <= 1997) {
+            div_resultado.innerHTML = `Você viu 5 títulos internacionais do Peixão!`
+        } if(san >= 1998 && san <= 2010) {
+            div_resultado.innerHTML = `Você viu 3 títulos internacionais do Peixão!`
+        } if(san == 2011) {
+            div_resultado.innerHTML = `Você viu 2 títulos internacionais do Peixão!`
+        } if(san == 2012) {
+            div_resultado.innerHTML = `Você viu 1 título internacional do Peixão!`
+        } if(san > 2012) {
+            div_resultado.innerHTML = `Você não viu nenhum título internacional do Peixão!`
+        }
+
+        if(sp <= 1992) {
+            div_resultado.innerHTML = `Você viu TODOS os 12 títulos internacionais do tricolor!`
+        } if(sp == 1993) {
+            div_resultado.innerHTML = `Você viu 10 títulos internacionais do tricolor!`
+        } if(sp >= 1994 && sp <= 1995) {
+            div_resultado.innerHTML = `Você viu 6 títulos internacionais do tricolor!`
+        } if(sp >= 1996 && sp <= 2004) {
+            div_resultado.innerHTML = `Você viu 5 títulos internacionais do tricolor!`
+        } if(sp >= 2005 && sp <= 2011) {
+            div_resultado.innerHTML = `Você viu 3 títulos internacionais do tricolor!`
+        } if(sp == 2012) {
+            div_resultado.innerHTML = `Você viu 1 título internacional do tricolor!`
+        } if(sp > 2012) {
+            div_resultado.innerHTML = `Você não viu nenhum título internacional do tricolor!`
+        }
+
+        if(cor <= 2000) {
+            div_resultado.innerHTML = `Você viu TODOS os 4 títulos internacionais do timão!`
+        } if(cor >= 2001 && cor <=2012) {
+            div_resultado.innerHTML = `Você viu 3 títulos internacionais do timão!`
+        } if(cor == 2013) {
+            div_resultado.innerHTML = `Você viu 1 título internacional do timão!`
+        } if(cor > 2013) {
+            div_resultado.innerHTML = `Você não viu nenhum título internacional do timão!`
+        }
+
+        if(pal <= 1951) {
+            div_resultado.innerHTML = `Você viu TODOS os 6 títulos internacionais do verdão!`
+        } if(pal >= 1952 && pal <= 1998) {
+            div_resultado.innerHTML = `Você viu 5 títulos internacionais do verdão!`
+        } if(pal == 1999) {
+            div_resultado.innerHTML = `Você viu 4 títulos internacionais do verdão!`
+        } if(pal >= 2000 && pal <= 2020) {
+            div_resultado.innerHTML = `Você viu 3 títulos internacionais do verdão!`
+        } if(pal == 2021) {
+            div_resultado.innerHTML = `Você viu 2 títulos internacionais do verdão!`
+        } if(pal == 2022) {
+            div_resultado.innerHTML = `Você viu 1 título internacional do verdão!`
+        } if(pal > 2022) {
+            div_resultado.innerHTML = `Você não viu nenhum título internacional do verdão!`
+        }
+
+        if(fogo <= 1993) {
+            div_resultado.innerHTML = `Você viu O ÚNICO título internacional do fogão!`
+        } if(fogo > 1993) {
+            div_resultado.innerHTML = `Você não viu nenhum título internacional do fogão!`
+        } 
+
+        if(fla <= 1981) {
+            div_resultado.innerHTML = `Você viu TODOS os 6 títulos internacionais do mengão!`
+        } if(fla >= 1982 && fla <= 1996) {
+            div_resultado.innerHTML = `Você viu 4 títulos internacionais do mengão!`
+        } if(fla >= 1997 && fla <= 1999) {
+            div_resultado.innerHTML = `Você viu 3 títulos internacionais do mengão!`
+        } if(fla >= 2000 && fla <= 2019) {
+            div_resultado.innerHTML = `Você viu 2 títulos internacionais do mengão!`
+        } if(fla == 2020) {
+            div_resultado.innerHTML = `Você viu 1 títulos internacionais do mengão!`
+        } if(fla > 2020) {
+            div_resultado.innerHTML = `Você não viu nenhum título internacional do mengão!`
+        }
+    }
+</script>

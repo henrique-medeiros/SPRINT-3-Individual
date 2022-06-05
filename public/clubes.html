@@ -9,7 +9,7 @@
 
     <script src="./js/funcoes.js"></script>
 
-    <link rel="icon" href="./assets/futebol7-recortado-removebg-preview.png">
+    <link rel="icon" href="../assets/bola.png">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <!-- <link
@@ -44,111 +44,66 @@
     
     <div id="espacamento1"></div>
     
+    <div class="titulo_clubes">
+        <h1>Quantos títulos internacionais do seu time você viu ?</h1>
+    </div>
 
     <div class="banner_sobre">
-
+        <div class="results">
+            <div class="card_time">
+                <div class="time"><img style="height: 90px; width: 100px;" src="assets/logo-santos.png" alt=""></div>
+                <input placeholder="Em que ano você nasceu?" id="in_san">
+                <button class="botao_san" onclick="qtd1()">Revelar</button>
+            </div><br>
+            <div id="div_resultado1"></div>
+        </div>
         
-        <!-- Carrosel -->
-        <div class="swiper mySwiper carrosel" id="Sobre-nos">
-            <div class="carrosel_container">
-                <div class="carrosel_content">
-                    <!--Slide 1-->
-                    <!-- Card 1-->
-                    <div class=" carrosel_card">
-                        <div class="carrosel_card_content">
+        <div class="results">
+            <div class="card_time">
+                <div class="time"><img style="height: 90px; width: 100px;" src="assets/logo-sao-paulo.png" alt=""></div>
+                <input placeholder="Em que ano você nasceu?" id="in_sp">
+                <button class="botao_sp" onclick="qtd2()">Revelar</button>
+            </div><br>
+            <div id="div_resultado2"></div>
+        </div>
 
-                            <div class="carrosel_image">
-                                <img src="./assets/logo-santos.png">
-                            </div>
+        <div class="results">
+            <div class="card_time">
+                <div class="time"><img style="height: 90px; width: 100px;" src="assets/logo-corinthians.png" alt=""></div>
+                <input placeholder="Em que ano você nasceu?" id="in_cor">
+                <button class="botao_cor" onclick="qtd3()">Revelar</button>
+            </div><br>
+            <div id="div_resultado3"></div>
+        </div>
 
-                            <div class="carrosel_nome">Santos FC</div>
-                            <div class="carrosel_profissao">O melior</div>
-                            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6SIIAiKyiMzQHqc9lZyEpN?utm_source=generator&theme=0" width="300px" height="80px" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
-                        </div>
-                    </div>
+        <div class="results">
+            <div class="card_time">
+                <div class="time"><img style="height: 90px; width: 100px;" src="assets/logo-palmeiras.png" alt=""></div>
+                <input placeholder="Em que ano você nasceu?" id="in_pal">
+                <button class="botao_pal" onclick="qtd4()">Revelar</button>
+            </div><br>
+            <div id="div_resultado4"></div>
+        </div>
 
-                    <!-- Card 2-->
-                    <div id="carrosel" class="carrosel_card">
-                        <div class="carrosel_card_content">
+        <div class="results">
+            <div class="card_time">
+                <div class="time"><img style="height: 90px; width: 100px;" src="assets/logo-botafogo.png" alt=""></div>
+                <input placeholder="Em que ano você nasceu?" id="in_fogo">
+                <button class="botao_fogo" onclick="qtd5()">Revelar</button>
+            </div><br>
+            <div id="div_resultado5"></div>
+        </div>
 
-                            <div class="carrosel_image">
-                                <img src="./assets/logo-sao-paulo.png">
-                            </div>
-
-                            <div class="carrosel_nome">São Paulo FC</div>
-                            <div class="carrosel_profissao">...</div>
-                            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1QRx1gt55Qa8srMGA0d81f?utm_source=generator" width="300px" height="80px" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; box-shadow: 1px 1px 6px #00ffc8; picture-in-picture"></iframe>
-                        </div>
-                    </div>
-
-                    <!-- Card 3-->
-                    <div class="carrosel_card">
-                        <div class="carrosel_card_content">
-
-                            <div class="carrosel_image">
-                                <img src="./assets/logo-corinthians.png">
-                            </div>
-
-                            <div class="carrosel_nome">SC Corinthians</div>
-                            <div class="carrosel_profissao">O mais feio</div>
-                            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/4uDa7Ga41Vehc7mHDotQMt?utm_source=generator&theme=0" width="300px" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-                        </div>
-                    </div>
-
-                    <!-- Card 4-->
-                    <div class="carrosel_card">
-                        <div class="carrosel_card_content">
-
-                            <div class="carrosel_image">
-                                <img src="./assets/logo-palmeiras.png">
-                            </div>
-
-                            <div class="carrosel_nome">SE Palmeiras</div>
-                            <div class="carrosel_profissao">Sem mundial !</div>
-                            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3ASPG6p16BCawf6fAJ0qmr?utm_source=generator" width="300px" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-                        </div>
-                    </div>
-
-                    <!-- Card 5-->
-                    <div class="carrosel_card">
-                        <div class="carrosel_card_content">
-
-                            <div class="carrosel_image">
-                                <img src="./assets/logo-botafogo.png">
-                            </div>
-
-                            <div class="carrosel_nome">Botafogo de Futebol e Regatas</div>
-                            <div class="carrosel_profissao">Ninguém liga</div>
-                            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6UzyHryiNMFP83keLHF0O9?utm_source=generator" width="300px" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-                        </div>
-                    </div>
-
-                    <!-- Card 6-->
-                    <div class="carrosel_card">
-                        <div class="carrosel_card_content">
-
-                            <div class="carrosel_image">
-                                <img src="./assets/logo-flamengo.png">
-                            </div>
-
-                            <div class="carrosel_nome">Flamengo</div>
-                            <div class="carrosel_profissao">...</div>
-                            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0IcXPtfEmnvEFovvjMSyXa?utm_source=generator" width="300px" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="carrosel_button_container">
-                    <img onclick="moverDireita()" class="carroselButton nextButton"
-                        src="./assets/seta_direita.png" alt="">
-                    <img onclick="moverEsquerda()" class="carroselButton prevButton none"
-                        src="./assets/seta_esquerda.png" alt="">
-                </div>
-            </div>
+        <div class="results">
+            <div class="card_time">
+                <div class="time"><img style="height: 90px; width: 100px;" src="assets/logo-flamengo.png" alt=""></div>
+                <input placeholder="Em que ano você nasceu?" id="in_fla">
+                <button class="botao_fla" onclick="qtd6()">Revelar</button>
+            </div><br>
+            <div id="div_resultado6"></div>
         </div>
     </div>
-    </div>
+    
     <!--Fim Carrosel-->
 
     <!--footer inicio-->
@@ -164,56 +119,100 @@
 
 </html>
 <script>
-    // Carrosel
-    var click = 1
-
-    function moverEsquerda() {
-        var card = document.getElementsByClassName('carrosel_card')
-        var prevButton = document.getElementsByClassName('prevButton')
-
-        if (click == 2) {
-            for (var contador = 0; contador <= card.length - 1; contador++) {
-                card[contador].style.transform = "translateX(0px)";
-                prevButton[0].classList.add('none')
-            }
-            click--
+    function qtd1() {
+        let san = Number(in_san.value)
+        if(san <= 1962) {
+            div_resultado1.innerHTML = `Você viu TODOS os 9 títulos internacionais do Peixão!`
+        } if(san >= 1963 && san <= 1967) {
+            div_resultado1.innerHTML = `Você viu 7 títulos internacionais do Peixão!`
+        } if(san >= 1968 && san <= 1997) {
+            div_resultado1.innerHTML = `Você viu 5 títulos internacionais do Peixão!`
+        } if(san >= 1998 && san <= 2010) {
+            div_resultado1.innerHTML = `Você viu 3 títulos internacionais do Peixão!`
+        } if(san == 2011) {
+            div_resultado1.innerHTML = `Você viu 2 títulos internacionais do Peixão!`
+        } if(san == 2012) {
+            div_resultado1.innerHTML = `Você viu 1 título internacional do Peixão!`
+        } if(san > 2012) {
+            div_resultado1.innerHTML = `Você não viu nenhum título internacional do Peixão!`
         }
-        if (click == 3) {
-            for (var contador = 0; contador <= card.length - 1; contador++) {
-                card[contador].style.transform = "translateX(-800px)";
-            }
-            click--
-        }
-
+        
     }
 
-    function moverDireita() {
-        var card = document.getElementsByClassName('carrosel_card')
-        var prevButton = document.getElementsByClassName('prevButton')
-
-        if (click <= 2) {
-            if (click == 1) {
-                for (var contador = 0; contador <= card.length - 1; contador++) {
-                    card[contador].style.transform = "translateX(-1050px)"; //950px
-                    prevButton[0].classList.remove('none');
-                }
-            } 
-            
-            if (click > 1) {
-                for (var contador = 0; contador <= card.length - 1; contador++) {
-                    card[contador].style.transform = "translateX(-2050px)";
-                }
-            }
-            click++
-        } else {
-            for (var contador = 0; contador <= card.length - 1; contador++) {
-                card[contador].style.transform = "translateX(0px)";
-                prevButton[0].classList.add('none')
-
-                click = 0
-            }
-            click++
+    function qtd2() {
+        let sp = Number(in_sp.value)
+        if(sp <= 1992) {
+            div_resultado2.innerHTML = `Você viu TODOS os 12 títulos internacionais do tricolor!`
+        } if(sp == 1993) {
+            div_resultado2.innerHTML = `Você viu 10 títulos internacionais do tricolor!`
+        } if(sp >= 1994 && sp <= 1995) {
+            div_resultado2.innerHTML = `Você viu 6 títulos internacionais do tricolor!`
+        } if(sp >= 1996 && sp <= 2004) {
+            div_resultado2.innerHTML = `Você viu 5 títulos internacionais do tricolor!`
+        } if(sp >= 2005 && sp <= 2011) {
+            div_resultado2.innerHTML = `Você viu 3 títulos internacionais do tricolor!`
+        } if(sp == 2012) {
+            div_resultado2.innerHTML = `Você viu 1 título internacional do tricolor!`
+        } if(sp > 2012) {
+            div_resultado2.innerHTML = `Você não viu nenhum título internacional do tricolor!`
         }
+    }
 
+    function qtd3() {
+        let cor = Number(in_cor.value)
+        if(cor <= 2000) {
+            div_resultado3.innerHTML = `Você viu TODOS os 4 títulos internacionais do timão!`
+        } if(cor >= 2001 && cor <=2012) {
+            div_resultado3.innerHTML = `Você viu 3 títulos internacionais do timão!`
+        } if(cor == 2013) {
+            div_resultado3.innerHTML = `Você viu 1 título internacional do timão!`
+        } if(cor > 2013) {
+            div_resultado3.innerHTML = `Você não viu nenhum título internacional do timão!`
+        }
+    }
+
+    function qtd4() {
+        let pal = Number(in_pal.value)
+        if(pal <= 1951) {
+            div_resultado4.innerHTML = `Você viu TODOS os 6 títulos internacionais do verdão!`
+        } if(pal >= 1952 && pal <= 1998) {
+            div_resultado4.innerHTML = `Você viu 5 títulos internacionais do verdão!`
+        } if(pal == 1999) {
+            div_resultado4.innerHTML = `Você viu 4 títulos internacionais do verdão!`
+        } if(pal >= 2000 && pal <= 2020) {
+            div_resultado4.innerHTML = `Você viu 3 títulos internacionais do verdão!`
+        } if(pal == 2021) {
+            div_resultado4.innerHTML = `Você viu 2 títulos internacionais do verdão!`
+        } if(pal == 2022) {
+            div_resultado4.innerHTML = `Você viu 1 título internacional do verdão!`
+        } if(pal > 2022) {
+            div_resultado4.innerHTML = `Você não viu nenhum título internacional do verdão!`
+        }
+    }
+
+    function qtd5() {
+        let fogo = Number(in_fogo.value)
+        if(fogo <= 1993) {
+            div_resultado5.innerHTML = `Você viu O ÚNICO título internacional do fogão!`
+        } if(fogo > 1993) {
+            div_resultado5.innerHTML = `Você não viu nenhum título internacional do fogão!`
+        }
+    }
+
+    function qtd6() {
+        let fla = Number(in_fla.value)
+        if(fla <= 1981) {
+            div_resultado6.innerHTML = `Você viu TODOS os 6 títulos internacionais do mengão!`
+        } if(fla >= 1982 && fla <= 1996) {
+            div_resultado6.innerHTML = `Você viu 4 títulos internacionais do mengão!`
+        } if(fla >= 1997 && fla <= 1999) {
+            div_resultado6.innerHTML = `Você viu 3 títulos internacionais do mengão!`
+        } if(fla >= 2000 && fla <= 2019) {
+            div_resultado6.innerHTML = `Você viu 2 títulos internacionais do mengão!`
+        } if(fla == 2020) {
+            div_resultado6.innerHTML = `Você viu 1 títulos internacionais do mengão!`
+        } if(fla > 2020) {
+            div_resultado6.innerHTML = `Você não viu nenhum título internacional do mengão!`
+        }
     }
 </script>
