@@ -105,7 +105,7 @@
                                 </div>
     
                                 <div class="carrosel_nome">Santos FC</div>
-                                <div class="carrosel_profissao">O melior</div>
+                                <div class="carrosel_profissao">Peixão</div>
                                 <button class="btn-chart" onclick="Votar(1)">Votar!</button>
                             </div>
                         </div>
@@ -119,7 +119,7 @@
                                 </div>
     
                                 <div class="carrosel_nome">São Paulo FC</div>
-                                <div class="carrosel_profissao">...</div>
+                                <div class="carrosel_profissao">Tricolor</div>
                                 <button class="btn-chart" onclick="Votar(2)">Votar!</button>
                             </div>
                         </div>
@@ -133,7 +133,7 @@
                                 </div>
     
                                 <div class="carrosel_nome">SC Corinthians</div>
-                                <div class="carrosel_profissao">O mais feio</div>
+                                <div class="carrosel_profissao">Timão</div>
                                 <button class="btn-chart" onclick="Votar(3)">Votar!</button>
                             </div>
                         </div>
@@ -147,7 +147,7 @@
                                 </div>
     
                                 <div class="carrosel_nome">SE Palmeiras</div>
-                                <div class="carrosel_profissao">Sem mundial !</div>
+                                <div class="carrosel_profissao">Verdão</div>
                                 <button class="btn-chart" onclick="Votar(4)">Votar!</button>
                             </div>
                         </div>
@@ -161,7 +161,7 @@
                                 </div>
     
                                 <div class="carrosel_nome">Botafogo de Futebol e Regatas</div>
-                                <div class="carrosel_profissao">Ninguém liga</div>
+                                <div class="carrosel_profissao">Fogão</div>
                                 <button class="btn-chart" onclick="Votar(5)">Votar!</button>
                             </div>
                         </div>
@@ -175,7 +175,7 @@
                                 </div>
     
                                 <div class="carrosel_nome">Flamengo</div>
-                                <div class="carrosel_profissao">...</div>
+                                <div class="carrosel_profissao">Mengão</div>
                                 <button class="btn-chart" onclick="Votar(6)">Votar!</button>
                             </div>
                         </div>
@@ -223,12 +223,16 @@
         // if (proximaAtualizacao != undefined) {
         //     clearTimeout(proximaAtualizacao);
         // }
-
+            if(sessionStorage.ja_votou == 'Sim'){
+                alert('Você já votou')
+                return
+            } 
         console.log('Entrei no Votar')
         fetch(`/medidas/votar/${idClube}`, { cache: 'no-store' }).then(function (response) {
             console.log('To no fetch')
             if (response.ok) {
                 alert('Você votou');
+                sessionStorage.ja_votou = 'Sim'
                 obterDadosGrafico(idClube);
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
